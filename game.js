@@ -184,8 +184,9 @@
   }
 
   // ---------- drawing ----------
+  // locked cells: gray outline, hollow — distinct from the solid white active piece
   function drawCell(ctx, x, y, size) {
-    ctx.strokeStyle = '#fff';
+    ctx.strokeStyle = '#777';
     ctx.lineWidth = 2;
     ctx.strokeRect(x * size + 1, y * size + 1, size - 2, size - 2);
   }
@@ -233,7 +234,7 @@
           }
       bctx.setLineDash([]);
 
-      // active piece (filled white)
+      // active piece: solid white, unambiguous against gray locked cells
       bctx.fillStyle = '#fff';
       for (let y = 0; y < current.shape.length; y++)
         for (let x = 0; x < current.shape[y].length; x++)
